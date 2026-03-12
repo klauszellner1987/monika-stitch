@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#FAF7F2"/>
+  <g transform="translate(200, 160)">
+    <!-- Hoop circle -->
+    <circle cx="0" cy="20" r="85" fill="none" stroke="#D4A5A5" stroke-width="4"/>
+    <circle cx="0" cy="20" r="75" fill="none" stroke="#D4A5A5" stroke-width="2" opacity="0.6"/>
+    <!-- Rose flower -->
+    <circle cx="0" cy="5" r="12" fill="#D4A5A5" opacity="0.9"/>
+    <circle cx="-12" cy="15" r="8" fill="#D4A5A5" opacity="0.8"/>
+    <circle cx="12" cy="15" r="8" fill="#D4A5A5" opacity="0.8"/>
+    <circle cx="0" cy="25" r="8" fill="#D4A5A5" opacity="0.8"/>
+    <circle cx="-8" cy="30" r="6" fill="#D4A5A5" opacity="0.7"/>
+    <circle cx="8" cy="30" r="6" fill="#D4A5A5" opacity="0.7"/>
+    <!-- Stem and leaves -->
+    <path d="M 0 35 L 0 55" stroke="#9CAF88" stroke-width="2" fill="none"/>
+    <path d="M -15 45 Q -5 50 0 48" stroke="#9CAF88" stroke-width="2" fill="none"/>
+    <path d="M 15 45 Q 5 50 0 48" stroke="#9CAF88" stroke-width="2" fill="none"/>
+  </g>
+  <text x="200" y="290" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#8B7355">Flower Embroidery Hoop</text>
+</svg>

@@ -1,0 +1,138 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ProductCard from "../components/ProductCard.astro";
+import { products, categories } from "../data/products";
+---
+
+<MainLayout title="Monika Stitch – Shop">
+  <section class="py-16 sm:py-20 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <p class="font-body text-sm uppercase tracking-[0.3em] text-rose-dark mb-3">Handgemacht & Einzigartig</p>
+        <h1 class="font-heading text-4xl sm:text-5xl text-charcoal font-bold mb-4">Unser Shop</h1>
+        <p class="font-body text-lg text-charcoal-light max-w-2xl mx-auto">
+          Entdecken Sie unsere handgefertigten Stickprodukte – jedes Stück ein Unikat.
+        </p>
+      </div>
+
+      <!-- Category filter -->
+      <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
+        <button
+          class="filter-btn active px-5 py-2.5 rounded-full font-body text-sm font-medium transition-all duration-300 cursor-pointer
+                 bg-rose text-white"
+          data-category="all"
+        >
+          Alle
+        </button>
+        {categories.map((cat) => (
+          <button
+            class="filter-btn px-5 py-2.5 rounded-full font-body text-sm font-medium transition-all duration-300 cursor-pointer
+                   bg-white text-charcoal-light border border-cream-dark hover:border-rose hover:text-rose-dark"
+            data-category={cat}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Product grid -->
+      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {products.map((product) => (
+          <div class="product-item" data-category={product.category}>
+            <ProductCard
+              name={product.name}
+              price={product.price}
+              image={product.image}
+              category={product.category}
+              description={product.description}
+              stripePriceId={product.stripePriceId}
+            />
+          </div>
+        ))}
+      </div>
+
+      <!-- Success message for Stripe -->
+      <div id="payment-success" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-charcoal/50 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl p-10 max-w-md mx-4 text-center shadow-xl">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-sage/20 flex items-center justify-center">
+            <svg class="w-8 h-8 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-2xl text-charcoal font-bold mb-2">Vielen Dank!</h3>
+          <p class="font-body text-charcoal-light mb-6">Ihre Bestellung wurde erfolgreich aufgegeben.</p>
+          <button id="close-success" class="px-6 py-3 bg-rose text-white font-body font-medium rounded-full hover:bg-rose-dark transition-colors cursor-pointer">
+            Weiter stöbern
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<script>
+  // Category filter
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const productItems = document.querySelectorAll(".product-item");
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const category = btn.getAttribute("data-category");
+
+      filterBtns.forEach((b) => {
+        b.classList.remove("active", "bg-rose", "text-white");
+        b.classList.add("bg-white", "text-charcoal-light", "border", "border-cream-dark");
+      });
+      btn.classList.add("active", "bg-rose", "text-white");
+      btn.classList.remove("bg-white", "text-charcoal-light", "border", "border-cream-dark");
+
+      productItems.forEach((item) => {
+        const el = item as HTMLElement;
+        if (category === "all" || el.dataset.category === category) {
+          el.style.display = "";
+          el.style.opacity = "0";
+          requestAnimationFrame(() => {
+            el.style.transition = "opacity 0.3s ease";
+            el.style.opacity = "1";
+          });
+        } else {
+          el.style.display = "none";
+        }
+      });
+    });
+  });
+
+  // Stripe checkout
+  const buyBtns = document.querySelectorAll(".stripe-buy-btn");
+  buyBtns.forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const priceId = btn.getAttribute("data-price-id");
+      if (!priceId || priceId.startsWith("price_PLACEHOLDER")) {
+        alert("Shop wird gerade eingerichtet. Bitte versuchen Sie es später erneut.");
+        return;
+      }
+
+      // @ts-ignore
+      const stripe = window.Stripe?.("pk_live_YOUR_STRIPE_KEY");
+      if (!stripe) return;
+
+      await stripe.redirectToCheckout({
+        lineItems: [{ price: priceId, quantity: 1 }],
+        mode: "payment",
+        successUrl: window.location.href + "?success=true",
+        cancelUrl: window.location.href,
+      });
+    });
+  });
+
+  // Success modal
+  if (window.location.search.includes("success=true")) {
+    document.getElementById("payment-success")?.classList.remove("hidden");
+    window.history.replaceState({}, "", window.location.pathname);
+  }
+
+  document.getElementById("close-success")?.addEventListener("click", () => {
+    document.getElementById("payment-success")?.classList.add("hidden");
+  });
+</script>

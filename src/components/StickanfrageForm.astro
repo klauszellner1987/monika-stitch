@@ -1,0 +1,114 @@
+<section class="py-20 bg-sage/10">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <p class="font-body text-sm uppercase tracking-[0.3em] text-sage-dark mb-3">Ihr Wunsch – Unsere Stickerei</p>
+      <h2 class="font-heading text-3xl sm:text-4xl text-charcoal font-bold">Ihre Stickanfrage</h2>
+      <p class="font-body text-charcoal-light mt-4 max-w-xl mx-auto">
+        Beschreiben Sie uns Ihr Wunschmotiv und wir erstellen ein individuelles Angebot für Sie.
+      </p>
+    </div>
+
+    <form
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+      enctype="multipart/form-data"
+      class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm space-y-6"
+      id="stickform"
+    >
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label for="name" class="block font-body text-sm font-medium text-charcoal mb-2">Name *</label>
+          <input
+            type="text" id="name" name="name" required
+            class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/50 font-body text-sm text-charcoal
+                   focus:outline-none focus:ring-2 focus:ring-rose/50 focus:border-rose transition-colors"
+            placeholder="Ihr Name"
+          />
+        </div>
+        <div>
+          <label for="email" class="block font-body text-sm font-medium text-charcoal mb-2">E-Mail *</label>
+          <input
+            type="email" id="email" name="email" required
+            class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/50 font-body text-sm text-charcoal
+                   focus:outline-none focus:ring-2 focus:ring-rose/50 focus:border-rose transition-colors"
+            placeholder="ihre@email.de"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="phone" class="block font-body text-sm font-medium text-charcoal mb-2">Telefon (optional)</label>
+        <input
+          type="tel" id="phone" name="phone"
+          class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/50 font-body text-sm text-charcoal
+                 focus:outline-none focus:ring-2 focus:ring-rose/50 focus:border-rose transition-colors"
+          placeholder="+49 123 456 7890"
+        />
+      </div>
+
+      <div>
+        <label for="description" class="block font-body text-sm font-medium text-charcoal mb-2">Beschreibung Ihrer Stickerei *</label>
+        <textarea
+          id="description" name="description" required rows="5"
+          class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/50 font-body text-sm text-charcoal resize-y
+                 focus:outline-none focus:ring-2 focus:ring-rose/50 focus:border-rose transition-colors"
+          placeholder="Beschreiben Sie Ihr gewünschtes Motiv, die Größe, Farben und den Verwendungszweck..."
+        ></textarea>
+      </div>
+
+      <div>
+        <label for="file" class="block font-body text-sm font-medium text-charcoal mb-2">Bild / Vorlage hochladen</label>
+        <div class="relative">
+          <input
+            type="file" id="file" name="attachment" accept="image/*,.pdf"
+            class="w-full px-4 py-3 rounded-xl border border-dashed border-cream-dark bg-cream/30 font-body text-sm text-charcoal-light
+                   file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-rose-light/30 file:text-rose-dark file:font-medium file:text-sm
+                   file:cursor-pointer hover:border-rose/50 transition-colors"
+          />
+        </div>
+        <p class="mt-1.5 text-xs text-charcoal-light/60">JPG, PNG oder PDF – max. 10 MB</p>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full sm:w-auto px-10 py-4 bg-sage text-white font-body font-medium rounded-full hover:bg-sage-dark
+               transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer flex items-center justify-center gap-2 mx-auto"
+      >
+        Anfrage senden
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/>
+        </svg>
+      </button>
+
+      <div id="form-success" class="hidden text-center py-4 text-sage-dark font-body font-medium">
+        Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns bald bei Ihnen.
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("stickform") as HTMLFormElement;
+  const success = document.getElementById("form-success");
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        form.reset();
+        success?.classList.remove("hidden");
+        setTimeout(() => success?.classList.add("hidden"), 6000);
+      }
+    } catch {
+      alert("Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.");
+    }
+  });
+</script>

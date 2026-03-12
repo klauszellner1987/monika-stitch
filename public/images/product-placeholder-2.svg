@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#FAF7F2"/>
+  <g transform="translate(200, 170)">
+    <!-- Pillow/cushion shape -->
+    <ellipse cx="0" cy="0" rx="70" ry="45" fill="#9CAF88" opacity="0.9"/>
+    <ellipse cx="0" cy="-5" rx="65" ry="38" fill="#9CAF88"/>
+    <!-- Monogram M -->
+    <path d="M -18 20 L -18 -15 L -6 5 L 6 -15 L 6 20" stroke="#FAF7F2" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="200" y="285" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#8B7355">Cushion with Monogram</text>
+</svg>

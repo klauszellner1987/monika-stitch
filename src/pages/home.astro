@@ -1,0 +1,111 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import ProductCard from "../components/ProductCard.astro";
+import { products } from "../data/products";
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
+const featuredProducts = products.filter((p) => p.featured);
+---
+
+<MainLayout title="Monika Stitch – Startseite">
+  <!-- Fade-in overlay from splash page -->
+  <div id="entrance-overlay" class="fixed inset-0 bg-cream z-[200] pointer-events-none transition-opacity duration-700"></div>
+
+  <HeroSection />
+
+  <!-- Features section -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="font-body text-sm uppercase tracking-[0.3em] text-rose-dark mb-3">Was uns ausmacht</p>
+        <h2 class="font-heading text-3xl sm:text-4xl text-charcoal font-bold">Unsere Leidenschaft</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <FeatureCard
+          title="Individuelle Stickerei"
+          description="Ihr persönliches Wunschmotiv – ob Logo, Schriftzug oder Bild – von Hand gestickt und einzigartig."
+          icon="custom"
+        />
+        <FeatureCard
+          title="Fertige Produkte"
+          description="Entdecken Sie unsere Kollektion handgefertigter Stickprodukte – bereit zum Verschenken oder Selbstbehalten."
+          icon="products"
+        />
+        <FeatureCard
+          title="Mit Liebe gemacht"
+          description="Jedes Stück wird mit größter Sorgfalt und Leidenschaft gefertigt – echte Handarbeit aus Überzeugung."
+          icon="delivery"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Bestseller section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="font-body text-sm uppercase tracking-[0.3em] text-gold-dark mb-3">Handverlesen</p>
+        <h2 class="font-heading text-3xl sm:text-4xl text-charcoal font-bold">Unsere Bestseller</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredProducts.map((product) => (
+          <ProductCard
+            name={product.name}
+            price={product.price}
+            image={product.image}
+            category={product.category}
+            description={product.description}
+            stripePriceId={product.stripePriceId}
+          />
+        ))}
+      </div>
+      <div class="text-center mt-12">
+        <a href={`${base}shop`}
+           class="inline-flex items-center gap-2 px-8 py-4 border-2 border-charcoal/20 text-charcoal font-body font-medium rounded-full
+                  hover:border-rose hover:text-rose-dark transition-all duration-300">
+          Alle Produkte ansehen
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stickanfrage teaser -->
+  <section class="py-20 bg-sage/10 relative overflow-hidden">
+    <svg class="absolute top-0 right-0 w-64 h-64 opacity-10" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="80" stroke="#9CAF88" stroke-width="3" fill="none"/>
+      <circle cx="100" cy="100" r="65" stroke="#9CAF88" stroke-width="1.5" fill="none"/>
+      <path d="M70 80 C80 60 100 70 110 90 S130 110 140 95" stroke="#9CAF88" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <p class="font-body text-sm uppercase tracking-[0.3em] text-sage-dark mb-3">Individuell & Einzigartig</p>
+      <h2 class="font-heading text-3xl sm:text-4xl text-charcoal font-bold mb-6">Haben Sie ein Wunschmotiv?</h2>
+      <p class="font-body text-lg text-charcoal-light max-w-2xl mx-auto mb-10 leading-relaxed">
+        Ob personalisiertes Geschenk, Firmenlogo oder kreatives Kunstwerk – senden Sie uns Ihre Idee und wir
+        verwandeln sie in einzigartige Stickkunst.
+      </p>
+      <a href={`${base}stickanfrage`}
+         class="inline-flex items-center gap-2 px-10 py-4 bg-sage text-white font-body font-medium rounded-full
+                hover:bg-sage-dark transition-all duration-300 hover:shadow-lg hover:scale-105">
+        Jetzt Anfrage stellen
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</MainLayout>
+
+<script>
+  const overlay = document.getElementById("entrance-overlay");
+  if (overlay) {
+    requestAnimationFrame(() => {
+      overlay.style.opacity = "0";
+      setTimeout(() => overlay.remove(), 800);
+    });
+  }
+</script>

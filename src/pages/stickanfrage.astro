@@ -1,0 +1,50 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import StickanfrageForm from "../components/StickanfrageForm.astro";
+---
+
+<MainLayout title="Monika Stitch – Stickanfrage">
+  <!-- Header -->
+  <section class="py-16 sm:py-20 bg-cream">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="font-body text-sm uppercase tracking-[0.3em] text-sage-dark mb-3">Ihr Wunsch wird Realität</p>
+      <h1 class="font-heading text-4xl sm:text-5xl text-charcoal font-bold mb-6">Stickanfrage</h1>
+      <p class="font-body text-lg text-charcoal-light max-w-2xl mx-auto leading-relaxed">
+        Sie haben eine besondere Idee? Erzählen Sie uns davon! Ob Logo, Schriftzug, Bild oder etwas
+        ganz anderes – wir setzen Ihre Vision in handgestickte Kunst um.
+      </p>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading text-2xl sm:text-3xl text-charcoal font-bold text-center mb-12">So funktioniert's</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-rose-light/30 flex items-center justify-center">
+            <span class="font-heading text-2xl text-rose-dark font-bold">1</span>
+          </div>
+          <h3 class="font-heading text-lg text-charcoal font-semibold mb-2">Anfrage senden</h3>
+          <p class="font-body text-sm text-charcoal-light">Beschreiben Sie Ihr Wunschmotiv und laden Sie optional eine Vorlage hoch.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-sage/20 flex items-center justify-center">
+            <span class="font-heading text-2xl text-sage-dark font-bold">2</span>
+          </div>
+          <h3 class="font-heading text-lg text-charcoal font-semibold mb-2">Angebot erhalten</h3>
+          <p class="font-body text-sm text-charcoal-light">Wir melden uns mit einem unverbindlichen Angebot und besprechen die Details.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-gold/20 flex items-center justify-center">
+            <span class="font-heading text-2xl text-gold-dark font-bold">3</span>
+          </div>
+          <h3 class="font-heading text-lg text-charcoal font-semibold mb-2">Unikat erhalten</h3>
+          <p class="font-body text-sm text-charcoal-light">Ihre handgestickte Auftragsarbeit wird liebevoll angefertigt und versendet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <StickanfrageForm />
+</MainLayout>

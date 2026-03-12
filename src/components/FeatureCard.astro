@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: "custom" | "products" | "delivery";
+}
+
+const { title, description, icon } = Astro.props;
+---
+
+<div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 text-center">
+  <div class="w-16 h-16 mx-auto mb-5 rounded-full bg-cream flex items-center justify-center group-hover:bg-rose-light/30 transition-colors duration-300">
+    {icon === "custom" && (
+      <svg class="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/>
+      </svg>
+    )}
+    {icon === "products" && (
+      <svg class="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/>
+      </svg>
+    )}
+    {icon === "delivery" && (
+      <svg class="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+      </svg>
+    )}
+  </div>
+  <h3 class="font-heading text-xl text-charcoal font-semibold mb-3">{title}</h3>
+  <p class="font-body text-sm text-charcoal-light leading-relaxed">{description}</p>
+</div>
