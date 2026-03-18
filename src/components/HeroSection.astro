@@ -5,17 +5,79 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
 <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
   <!-- Background pattern -->
   <div class="absolute inset-0 bg-gradient-to-br from-cream via-rose-light/20 to-cream-dark"></div>
-  <div class="absolute inset-0 opacity-5">
-    <svg width="100%" height="100%">
-      <pattern id="stitch-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-        <line x1="0" y1="20" x2="20" y2="0" stroke="#3D3D3D" stroke-width="0.5"/>
-        <line x1="20" y1="40" x2="40" y2="20" stroke="#3D3D3D" stroke-width="0.5"/>
-      </pattern>
-      <rect width="100%" height="100%" fill="url(#stitch-pattern)"/>
+  <!-- Embroidery hoop frame -->
+  <div class="hero-hoop absolute inset-0 flex items-center justify-center pointer-events-none">
+    <svg class="w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] md:w-[500px] md:h-[500px]" viewBox="0 0 200 200" fill="none">
+      <circle cx="100" cy="100" r="92" stroke="#C9A96E" stroke-width="3.5" opacity="0.10"/>
+      <circle cx="100" cy="100" r="86" stroke="#C9A96E" stroke-width="1.5" opacity="0.07"/>
+      <circle cx="100" cy="100" r="80" stroke="#C9A96E" stroke-width="0.5" opacity="0.05" stroke-dasharray="4 6"/>
     </svg>
   </div>
 
+  <!-- Flowing thread curves -->
+  <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none">
+    <path class="thread-curve" d="M-50,200 C150,80 350,320 550,180 S850,350 1050,120 L1250,250" stroke="#D4A5A5" stroke-width="1.5" stroke-linecap="round" opacity="0.12" style="animation-delay: 0s;"/>
+    <path class="thread-curve" d="M-50,500 C200,400 400,580 650,420 S900,550 1100,380 L1250,480" stroke="#9CAF88" stroke-width="1.3" stroke-linecap="round" opacity="0.10" style="animation-delay: -7s;"/>
+    <path class="thread-curve" d="M-50,350 C100,280 300,420 500,300 S800,200 1000,350 L1250,280" stroke="#C9A96E" stroke-width="1" stroke-linecap="round" opacity="0.08" style="animation-delay: -13s;"/>
+  </svg>
+
+  <!-- Scattered embroidery motifs -->
+  <div class="absolute inset-0 pointer-events-none hidden sm:block">
+    <!-- Cross-stitch cluster top-left -->
+    <svg class="motif absolute top-[8%] left-[4%] w-10 h-8" viewBox="0 0 40 24" fill="none" style="animation-delay: 0s;">
+      <line x1="2" y1="2" x2="8" y2="8" stroke="#D4A5A5" stroke-width="1.4" stroke-linecap="round"/><line x1="8" y1="2" x2="2" y2="8" stroke="#D4A5A5" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="12" y1="2" x2="18" y2="8" stroke="#D4A5A5" stroke-width="1.4" stroke-linecap="round"/><line x1="18" y1="2" x2="12" y2="8" stroke="#D4A5A5" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="22" y1="2" x2="28" y2="8" stroke="#D4A5A5" stroke-width="1.4" stroke-linecap="round"/><line x1="28" y1="2" x2="22" y2="8" stroke="#D4A5A5" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="32" y1="2" x2="38" y2="8" stroke="#D4A5A5" stroke-width="1.4" stroke-linecap="round"/><line x1="38" y1="2" x2="32" y2="8" stroke="#D4A5A5" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="7" y1="12" x2="13" y2="18" stroke="#D4A5A5" stroke-width="1.4" stroke-linecap="round"/><line x1="13" y1="12" x2="7" y2="18" stroke="#D4A5A5" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="17" y1="12" x2="23" y2="18" stroke="#D4A5A5" stroke-width="1.4" stroke-linecap="round"/><line x1="23" y1="12" x2="17" y2="18" stroke="#D4A5A5" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="27" y1="12" x2="33" y2="18" stroke="#D4A5A5" stroke-width="1.4" stroke-linecap="round"/><line x1="33" y1="12" x2="27" y2="18" stroke="#D4A5A5" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+
+    <!-- Flower top-right -->
+    <svg class="motif absolute top-[10%] right-[12%] w-8 h-12" viewBox="0 0 24 34" fill="none" style="animation-delay: -1.5s;">
+      <circle cx="12" cy="10" r="2" fill="#D4A5A5" opacity="0.4"/>
+      <path d="M12 8 Q14 3 12 1 Q10 3 12 8" stroke="#D4A5A5" stroke-width="0.8" fill="#D4A5A5" fill-opacity="0.12"/>
+      <path d="M14 10 Q18 7 19 4 Q16 6 14 10" stroke="#D4A5A5" stroke-width="0.8" fill="#D4A5A5" fill-opacity="0.12"/>
+      <path d="M13 12 Q17 14 19 17 Q15 14 13 12" stroke="#D4A5A5" stroke-width="0.8" fill="#D4A5A5" fill-opacity="0.12"/>
+      <path d="M11 12 Q7 14 5 17 Q9 14 11 12" stroke="#D4A5A5" stroke-width="0.8" fill="#D4A5A5" fill-opacity="0.12"/>
+      <path d="M10 10 Q6 7 5 4 Q8 6 10 10" stroke="#D4A5A5" stroke-width="0.8" fill="#D4A5A5" fill-opacity="0.12"/>
+      <line x1="12" y1="14" x2="12" y2="30" stroke="#9CAF88" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M12 22 Q8 19 6 21" fill="none" stroke="#9CAF88" stroke-width="1" stroke-linecap="round"/>
+    </svg>
+
+    <!-- Heart left-mid -->
+    <svg class="motif absolute top-[55%] left-[6%] w-5 h-5" viewBox="0 0 24 24" fill="none" style="animation-delay: -5s;">
+      <path d="M12 20 C12 20 4 14 4 9 C4 5.5 7 4 9.5 4 C10.8 4 12 5 12 6.5 C12 5 13.2 4 14.5 4 C17 4 20 5.5 20 9 C20 14 12 20 12 20Z" stroke="#D4A5A5" stroke-width="1.3" fill="#D4A5A5" fill-opacity="0.1"/>
+    </svg>
+
+    <!-- Leaf sprig right-mid -->
+    <svg class="motif absolute top-[38%] right-[4%] w-8 h-8" viewBox="0 0 28 28" fill="none" style="animation-delay: -1s;">
+      <line x1="4" y1="24" x2="24" y2="4" stroke="#9CAF88" stroke-width="1" stroke-linecap="round"/>
+      <ellipse cx="10" cy="18" rx="3" ry="5.5" stroke="#9CAF88" stroke-width="0.9" transform="rotate(-45 10 18)" fill="#9CAF88" fill-opacity="0.06"/>
+      <ellipse cx="18" cy="10" rx="3" ry="5.5" stroke="#9CAF88" stroke-width="0.9" transform="rotate(-45 18 10)" fill="#9CAF88" fill-opacity="0.06"/>
+      <ellipse cx="14" cy="14" rx="2.5" ry="4.5" stroke="#9CAF88" stroke-width="0.8" transform="rotate(-45 14 14)" fill="#9CAF88" fill-opacity="0.05"/>
+    </svg>
+
+    <!-- Leaf sprig bottom-center -->
+    <svg class="motif absolute bottom-[18%] left-[38%] w-6 h-6" viewBox="0 0 28 28" fill="none" style="animation-delay: -6s;">
+      <line x1="4" y1="24" x2="24" y2="4" stroke="#B8C8A8" stroke-width="1" stroke-linecap="round"/>
+      <ellipse cx="10" cy="18" rx="2.5" ry="5" stroke="#B8C8A8" stroke-width="0.8" transform="rotate(-45 10 18)" fill="#B8C8A8" fill-opacity="0.06"/>
+      <ellipse cx="18" cy="10" rx="2.5" ry="5" stroke="#B8C8A8" stroke-width="0.8" transform="rotate(-45 18 10)" fill="#B8C8A8" fill-opacity="0.06"/>
+    </svg>
+
+    <!-- Scissors bottom-right -->
+    <svg class="motif absolute bottom-[28%] right-[16%] w-7 h-7" viewBox="0 0 24 24" fill="none" style="animation-delay: -2.5s;">
+      <circle cx="7" cy="5" r="3.5" stroke="#5A5A5A" stroke-width="0.9" opacity="0.7"/>
+      <circle cx="7" cy="19" r="3.5" stroke="#5A5A5A" stroke-width="0.9" opacity="0.7"/>
+      <line x1="10" y1="7" x2="22" y2="14" stroke="#5A5A5A" stroke-width="1.1" stroke-linecap="round" opacity="0.7"/>
+      <line x1="10" y1="17" x2="22" y2="10" stroke="#5A5A5A" stroke-width="1.1" stroke-linecap="round" opacity="0.7"/>
+    </svg>
+
+  </div>
+
   <div class="relative z-10 max-w-4xl mx-auto text-center px-6 py-20">
+    <img src={`${base}images/logo.svg`} alt="Monika Stitch" class="w-28 sm:w-36 md:w-44 h-auto mx-auto mb-6" />
     <p class="font-body text-sm uppercase tracking-[0.3em] text-rose-dark mb-6">Handgemacht & Einzigartig</p>
     <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-charcoal leading-tight mb-6">
       Stickkunst mit<br/>
@@ -45,3 +107,47 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
     <path d="M0,95 C300,60 600,95 900,65 S1100,90 1200,70" fill="none" stroke="#9CAF88" stroke-width="1.5"/>
   </svg>
 </section>
+
+<style>
+  .hero-hoop svg {
+    animation: hoopPulse 8s ease-in-out infinite;
+  }
+
+  .thread-curve {
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    animation: threadFlow 18s linear infinite;
+  }
+
+  .motif {
+    opacity: 0.12;
+    animation: gentleFloat 8s ease-in-out infinite;
+  }
+
+  @keyframes hoopPulse {
+    0%, 100% { transform: scale(0.98); }
+    50% { transform: scale(1.03); }
+  }
+
+  @keyframes gentleFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(2deg); }
+  }
+
+  @keyframes threadFlow {
+    0% { stroke-dashoffset: 1200; }
+    50% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -1200; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-hoop svg,
+    .thread-curve,
+    .motif {
+      animation: none;
+    }
+    .thread-curve {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>
