@@ -5,7 +5,7 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
 
 <Layout title="Monika Stitch – Willkommen">
   <!-- Needle-threading animation overlay -->
-  <div id="thread-anim" class="fixed inset-0 bg-cream z-[200] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+  <div id="thread-anim" class="fixed inset-0 bg-blue-950 z-[200] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
     <div id="soft-blend" class="absolute inset-0"></div>
     <div id="anim-content" class="relative flex items-center justify-center anim-scene">
       <svg class="anim-svg w-[88vw] max-w-2xl sm:max-w-3xl" viewBox="-80 -30 580 440" fill="none">
@@ -41,7 +41,7 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
     </div>
   </div>
 
-  <div class="relative min-h-screen w-full overflow-hidden bg-cream flex items-center justify-center">
+  <div class="relative min-h-screen w-full overflow-hidden bg-blue-950 flex items-center justify-center">
     <!-- Animated thread lines -->
     <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 1000">
       <path class="thread thread-1" d="M-50,200 C150,180 300,350 500,300 S750,180 1050,250" fill="none" stroke="#D4A5A5" stroke-width="1.5" opacity="0.5"/>
@@ -58,8 +58,8 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
 
       <!-- Enter button -->
       <a id="enter-link" href={`${base}home`}
-         class="splash-button group inline-flex items-center gap-2 px-10 py-4 bg-rose text-white font-body text-lg font-medium rounded-full
-                hover:bg-rose-dark transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer">
+         class="splash-button group inline-flex items-center gap-2 px-10 py-4 bg-gold text-blue-950 font-body text-lg font-bold rounded-full
+                hover:bg-gold-dark hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-gold/30 hover:scale-105 cursor-pointer">
         Entdecken
         <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
@@ -147,7 +147,7 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
   }
 
   #soft-blend {
-    background: var(--color-cream, #FAF7F2);
+    background: #172554; /* blue-950 */
     opacity: 0;
     z-index: 10;
     pointer-events: none;
