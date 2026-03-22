@@ -10,7 +10,7 @@ const navLinks = [
 ];
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-cream-dark/50 transition-all duration-300">
+<nav class="sticky top-0 z-50 w-full bg-blue-950/95 backdrop-blur-xl border-b border-gold/30 shadow-[0_4px_20px_rgba(201,169,110,0.1)] transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 sm:h-20">
       <a href={`${base}home`} class="flex items-center group">
@@ -25,8 +25,8 @@ const navLinks = [
             <a
               href={link.href}
               class:list={[
-                "nav-link font-body text-sm font-medium transition-colors duration-200 relative py-1 flex items-center gap-1.5",
-                isActive ? "text-rose-dark active" : "text-charcoal-light hover:text-rose-dark",
+                "nav-link group font-body text-sm font-medium transition-colors duration-200 relative py-1 flex items-center gap-1.5",
+                isActive ? "text-gold active" : "text-white/80 hover:text-gold",
               ]}
             >
               <svg class="nav-needle" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -35,8 +35,8 @@ const navLinks = [
               </svg>
               <span>{link.label}</span>
               <span class:list={[
-                "stitch-underline absolute bottom-0 left-0 h-1.5 transition-all duration-300",
-                isActive ? "w-full" : "w-0",
+                "absolute -bottom-1 left-1/2 -translate-x-1/2 h-[2px] bg-gradient-to-r from-transparent via-[#C9A96E] to-transparent transition-all duration-300",
+                isActive ? "w-full opacity-100" : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100",
               ]} />
             </a>
           );
@@ -44,7 +44,7 @@ const navLinks = [
       </div>
 
       <!-- Mobile menu button -->
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-charcoal hover:text-rose-dark transition-colors" aria-label="Menü öffnen">
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-white/80 hover:text-gold transition-colors" aria-label="Menü öffnen">
         <svg id="menu-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
@@ -56,7 +56,7 @@ const navLinks = [
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-cream-dark/50 bg-white/95 backdrop-blur-md">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-gold/20 bg-transparent rounded-b-3xl pb-2">
     <div class="px-4 py-4 space-y-3">
       {navLinks.map((link) => (
         <a
@@ -64,8 +64,8 @@ const navLinks = [
           class:list={[
             "block font-body text-base font-medium py-2 px-3 rounded-lg transition-colors duration-200",
             currentPath.includes(link.href.replace(base, ""))
-              ? "text-rose-dark bg-rose-light/20"
-              : "text-charcoal-light hover:text-rose-dark hover:bg-cream-dark",
+              ? "text-gold bg-gold/10"
+              : "text-white/80 hover:text-gold hover:bg-white/5",
           ]}
         >
           {link.label}
@@ -75,7 +75,6 @@ const navLinks = [
   </div>
 </nav>
 
-<div class="h-16 sm:h-20"></div>
 
 <style>
   .nav-needle {
@@ -91,17 +90,6 @@ const navLinks = [
     opacity: 1;
     transform: translateX(0) rotate(-10deg);
     width: 14px;
-  }
-
-  .stitch-underline {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6'%3E%3Cline x1='1' y1='1' x2='7' y2='5' stroke='%23D4A5A5' stroke-width='1.3' stroke-linecap='round'/%3E%3Cline x1='7' y1='1' x2='1' y2='5' stroke='%23D4A5A5' stroke-width='1.3' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: repeat-x;
-    background-size: 8px 6px;
-    background-position: bottom center;
-  }
-
-  .nav-link:hover .stitch-underline {
-    width: 100%;
   }
 </style>
 

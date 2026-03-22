@@ -1,9 +1,9 @@
-<section class="py-20 bg-sage/10">
+<section class="py-20 bg-transparent relative">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
       <p class="font-body text-sm uppercase tracking-[0.3em] text-sage-dark mb-3">Ihr Wunsch – Unsere Stickerei</p>
-      <h2 class="font-heading text-3xl sm:text-4xl text-charcoal font-bold">Ihre Stickanfrage</h2>
-      <p class="font-body text-charcoal-light mt-4 max-w-xl mx-auto">
+      <h2 class="font-heading text-3xl sm:text-4xl text-white font-bold">Ihre Stickanfrage</h2>
+      <p class="font-body text-white/70 mt-4 max-w-xl mx-auto">
         Beschreiben Sie uns Ihr Wunschmotiv und wir erstellen ein individuelles Angebot für Sie.
       </p>
     </div>
@@ -12,67 +12,67 @@
       action="https://formspree.io/f/YOUR_FORM_ID"
       method="POST"
       enctype="multipart/form-data"
-      class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm space-y-6"
+      class="bg-white/[0.02] backdrop-blur-md border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl space-y-6 relative z-10"
       id="stickform"
     >
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label for="name" class="block font-body text-sm font-medium text-charcoal mb-2">Name *</label>
+          <label for="name" class="block font-body text-sm font-medium text-white mb-2">Name *</label>
           <input
             type="text" id="name" name="name" required
-            class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/50 font-body text-sm text-charcoal
-                   focus:outline-none focus:ring-2 focus:ring-rose/50 focus:border-rose transition-colors"
+            class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 font-body text-sm text-white
+                   focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/50 focus:border-[#C9A96E] transition-colors"
             placeholder="Ihr Name"
           />
         </div>
         <div>
-          <label for="email" class="block font-body text-sm font-medium text-charcoal mb-2">E-Mail *</label>
+          <label for="email" class="block font-body text-sm font-medium text-white mb-2">E-Mail *</label>
           <input
             type="email" id="email" name="email" required
-            class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/50 font-body text-sm text-charcoal
-                   focus:outline-none focus:ring-2 focus:ring-rose/50 focus:border-rose transition-colors"
+            class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 font-body text-sm text-white
+                   focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/50 focus:border-[#C9A96E] transition-colors"
             placeholder="ihre@email.de"
           />
         </div>
       </div>
 
       <div>
-        <label for="phone" class="block font-body text-sm font-medium text-charcoal mb-2">Telefon (optional)</label>
+        <label for="phone" class="block font-body text-sm font-medium text-white mb-2">Telefon (optional)</label>
         <input
           type="tel" id="phone" name="phone"
-          class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/50 font-body text-sm text-charcoal
-                 focus:outline-none focus:ring-2 focus:ring-rose/50 focus:border-rose transition-colors"
+          class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 font-body text-sm text-white
+                 focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/50 focus:border-[#C9A96E] transition-colors"
           placeholder="+49 123 456 7890"
         />
       </div>
 
       <div>
-        <label for="description" class="block font-body text-sm font-medium text-charcoal mb-2">Beschreibung Ihrer Stickerei *</label>
+        <label for="description" class="block font-body text-sm font-medium text-white mb-2">Beschreibung Ihrer Stickerei *</label>
         <textarea
           id="description" name="description" required rows="5"
-          class="w-full px-4 py-3 rounded-xl border border-cream-dark bg-cream/50 font-body text-sm text-charcoal resize-y
-                 focus:outline-none focus:ring-2 focus:ring-rose/50 focus:border-rose transition-colors"
+          class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 font-body text-sm text-white resize-y
+                 focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/50 focus:border-[#C9A96E] transition-colors"
           placeholder="Beschreiben Sie Ihr gewünschtes Motiv, die Größe, Farben und den Verwendungszweck..."
         ></textarea>
       </div>
 
       <div>
-        <label for="file" class="block font-body text-sm font-medium text-charcoal mb-2">Bild / Vorlage hochladen</label>
+        <label for="file" class="block font-body text-sm font-medium text-white mb-2">Bild / Vorlage hochladen</label>
         <div class="relative">
           <input
             type="file" id="file" name="attachment" accept="image/*,.pdf"
-            class="w-full px-4 py-3 rounded-xl border border-dashed border-cream-dark bg-cream/30 font-body text-sm text-charcoal-light
-                   file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-rose-light/30 file:text-rose-dark file:font-medium file:text-sm
-                   file:cursor-pointer hover:border-rose/50 transition-colors"
+            class="w-full px-4 py-3 rounded-xl border border-dashed border-white/20 bg-white/5 font-body text-sm text-white/70
+                   file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-[#C9A96E]/20 file:text-[#C9A96E] file:font-medium file:text-sm
+                   file:cursor-pointer hover:border-[#C9A96E]/50 transition-colors"
           />
         </div>
-        <p class="mt-1.5 text-xs text-charcoal-light/60">JPG, PNG oder PDF – max. 10 MB</p>
+        <p class="mt-1.5 text-xs text-white/70/60">JPG, PNG oder PDF – max. 10 MB</p>
       </div>
 
       <button
         type="submit"
-        class="w-full sm:w-auto px-10 py-4 bg-sage text-white font-body font-medium rounded-full hover:bg-sage-dark
-               transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer flex items-center justify-center gap-2 mx-auto"
+        class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-[#C9A96E] to-[#A88A4E] text-white font-body font-medium rounded-full shadow-[0_4px_10px_rgba(201,169,110,0.2)]
+               transition-all duration-300 hover:shadow-[0_4px_20px_rgba(201,169,110,0.4)] hover:scale-105 cursor-pointer flex items-center justify-center gap-2 mx-auto border border-[#D9C49A]/30"
       >
         Anfrage senden
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

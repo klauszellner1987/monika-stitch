@@ -12,28 +12,28 @@ const { name, price, image, category, description, stripePriceId } = Astro.props
 const formattedPrice = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(price);
 ---
 
-<div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col">
-  <div class="relative aspect-square overflow-hidden bg-cream-dark">
+<div class="group bg-white/[0.02] backdrop-blur-sm rounded-2xl overflow-hidden shadow-sm hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:border-white/10 border border-white/5 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+  <div class="relative aspect-square overflow-hidden bg-[#0f172a]/40">
     <img
       src={image}
       alt={name}
       class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       loading="lazy"
     />
-    <span class="absolute top-3 left-3 px-3 py-1 bg-white/90 backdrop-blur-sm text-xs font-body font-medium text-charcoal-light rounded-full">
+    <span class="absolute top-3 left-3 px-3 py-1 bg-[#0f172a]/90 border border-white/10 backdrop-blur-sm text-xs font-body font-medium text-white/80 rounded-full">
       {category}
     </span>
   </div>
 
   <div class="p-5 flex flex-col flex-1">
-    <h3 class="font-heading text-lg text-charcoal font-semibold mb-1">{name}</h3>
+    <h3 class="font-heading text-lg text-white font-semibold mb-1">{name}</h3>
     {description && (
-      <p class="font-body text-sm text-charcoal-light mb-3 line-clamp-2">{description}</p>
+      <p class="font-body text-sm text-white/70 mb-3 line-clamp-2">{description}</p>
     )}
-    <div class="mt-auto flex items-center justify-between pt-3 border-t border-cream-dark/50">
-      <span class="font-heading text-xl text-rose-dark font-bold">{formattedPrice}</span>
+    <div class="mt-auto flex items-center justify-between pt-3 border-t border-white/10">
+      <span class="font-heading text-xl text-[#C9A96E] font-bold">{formattedPrice}</span>
       <button
-        class="stripe-buy-btn inline-flex items-center gap-1.5 px-5 py-2.5 bg-rose text-white text-sm font-body font-medium rounded-full hover:bg-rose-dark transition-all duration-300 hover:scale-105 cursor-pointer"
+        class="stripe-buy-btn inline-flex items-center gap-1.5 px-5 py-2.5 bg-gradient-to-r from-[#C9A96E] to-[#A88A4E] shadow-[0_4px_10px_rgba(201,169,110,0.2)] text-white text-sm font-body font-medium rounded-full hover:shadow-[0_4px_15px_rgba(201,169,110,0.4)] transition-all duration-300 hover:scale-105 border border-[#D9C49A]/30 cursor-pointer"
         data-price-id={stripePriceId}
       >
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

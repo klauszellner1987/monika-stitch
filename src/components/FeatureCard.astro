@@ -16,11 +16,11 @@ const accent = accentMap[icon];
 ---
 
 <div class:list={[
-  "feature-card group relative overflow-hidden bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1.5 text-center border-t-4",
+  "feature-card group relative overflow-hidden bg-white/[0.02] backdrop-blur-sm rounded-2xl p-8 shadow-sm hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:border-white/10 transition-all duration-300 hover:-translate-y-1.5 text-center border border-white/5 border-t-4",
   accent.border,
 ]}>
   <div class:list={[
-    "w-16 h-16 mx-auto mb-5 rounded-full bg-cream flex items-center justify-center transition-colors duration-300",
+    "w-16 h-16 mx-auto mb-5 rounded-full bg-transparent flex items-center justify-center transition-colors duration-300",
     accent.hoverBg,
   ]}>
     {icon === "custom" && (
@@ -39,8 +39,8 @@ const accent = accentMap[icon];
       </svg>
     )}
   </div>
-  <h3 class="font-heading text-xl text-charcoal font-semibold mb-3">{title}</h3>
-  <p class="font-body text-sm text-charcoal-light leading-relaxed">{description}</p>
+  <h3 class="font-heading text-xl text-white font-semibold mb-3">{title}</h3>
+  <p class="font-body text-sm text-white/70 leading-relaxed">{description}</p>
 
   <!-- Decorative cross-stitch motif -->
   <svg class="stitch-motif absolute bottom-3 right-3 w-8 h-8" viewBox="0 0 24 18" fill="none" aria-hidden="true">
