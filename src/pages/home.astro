@@ -11,16 +11,16 @@ const featuredProducts = products.filter((p) => p.featured);
 
 <MainLayout title="Monika Stitch – Startseite">
   <!-- Fade-in overlay from splash page -->
-  <div id="entrance-overlay" class="fixed inset-0 bg-cream z-[200] pointer-events-none transition-opacity duration-700"></div>
+  <div id="entrance-overlay" class="fixed inset-0 bg-blue-950 z-[200] pointer-events-none transition-opacity duration-700"></div>
 
   <HeroSection />
 
   <!-- Features section -->
-  <section class="py-20 bg-cream">
+  <section class="py-20 bg-transparent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14">
         <p class="font-body text-sm uppercase tracking-[0.3em] text-rose-dark mb-3">Was uns ausmacht</p>
-        <h2 class="font-heading text-3xl sm:text-4xl text-charcoal font-bold">Unsere Leidenschaft</h2>
+        <h2 class="font-heading text-3xl sm:text-4xl text-white font-bold">Unsere Leidenschaft</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <FeatureCard
@@ -43,11 +43,11 @@ const featuredProducts = products.filter((p) => p.featured);
   </section>
 
   <!-- Bestseller section -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-white/[0.02] border-y border-white/5 backdrop-blur-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14">
         <p class="font-body text-sm uppercase tracking-[0.3em] text-gold-dark mb-3">Handverlesen</p>
-        <h2 class="font-heading text-3xl sm:text-4xl text-charcoal font-bold">Unsere Bestseller</h2>
+        <h2 class="font-heading text-3xl sm:text-4xl text-white font-bold">Unsere Bestseller</h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {featuredProducts.map((product) => (
@@ -63,7 +63,7 @@ const featuredProducts = products.filter((p) => p.featured);
       </div>
       <div class="text-center mt-12">
         <a href={`${base}shop`}
-           class="inline-flex items-center gap-2 px-8 py-4 border-2 border-charcoal/20 text-charcoal font-body font-medium rounded-full
+           class="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/20 text-white font-body font-medium rounded-full
                   hover:border-rose hover:text-rose-dark transition-all duration-300">
           Alle Produkte ansehen
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -83,8 +83,8 @@ const featuredProducts = products.filter((p) => p.featured);
     </svg>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       <p class="font-body text-sm uppercase tracking-[0.3em] text-sage-dark mb-3">Individuell & Einzigartig</p>
-      <h2 class="font-heading text-3xl sm:text-4xl text-charcoal font-bold mb-6">Haben Sie ein Wunschmotiv?</h2>
-      <p class="font-body text-lg text-charcoal-light max-w-2xl mx-auto mb-10 leading-relaxed">
+      <h2 class="font-heading text-3xl sm:text-4xl text-white font-bold mb-6">Haben Sie ein Wunschmotiv?</h2>
+      <p class="font-body text-lg text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed">
         Ob personalisiertes Geschenk, Firmenlogo oder kreatives Kunstwerk – senden Sie uns Ihre Idee und wir
         verwandeln sie in einzigartige Stickkunst.
       </p>
